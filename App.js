@@ -138,6 +138,15 @@ function App() {
                     </table>
                 </div>
             </div>
+            <div className='col-8'>
+                <h4>
+                    Total cost: {
+                        groceriesInShoppingCart.reduce((prev, element)=>{
+                            return prev + element.gr.quantity * element.gr.price
+                        },0)
+                    }
+                </h4>
+            </div>
             <footer className='fixed-bottom mx-4 row'>
                 <p className='col-12'>14.06.2023 Benjámin Feldmájer</p>
             </footer>
