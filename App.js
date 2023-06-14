@@ -17,7 +17,12 @@ function App() {
     function decrementGrocery(indexOfClickedGrocery){
         const newList = groceriesInCatalog.map((gr, index)=>{
             if(index===indexOfClickedGrocery){
-                return {...gr, quantity: gr.quantity-1}
+                if(gr.quantity>0){
+                    return {...gr, quantity: gr.quantity-1}
+                }
+                else{
+                    return gr
+                }
             }else{
                 return gr
             }
