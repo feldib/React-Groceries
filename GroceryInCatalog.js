@@ -7,7 +7,7 @@ function GroceryInCatalog(props){
     }
     return (
         <tr className='table-primary' onClick={()=>{
-            props.decrementGrocery(props.index)
+            props.putToCart(props.index)
         }}>
             <td><img src={props.imgURL} /></td>
             <td className={isDisabled}>{props.name}</td>
