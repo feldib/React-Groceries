@@ -1,6 +1,41 @@
 import React from 'react'
+import GroceryInCatalog from './GroceryInCatalog'
 
 function App() {
+    const [groceriesInCatalog, setGroceriesInCatalog] = React.useState(
+        [
+            new Grocery("", "Garlic bread", 30, 8),
+            new Grocery("", "Garlic bread", 30, 8)
+        ]
+    )
+    function Grocery(imgURL, name, price, quantity){
+        this.imgURL = imgURL
+        this.name=name
+        this.price=price
+        this.quantity=quantity
+    }
+    function decrementGrocery(indexOfClickedGrocery){
+        const newList = groceriesInCatalog.map((gr, index)=>{
+            if(index===indexOfClickedGrocery){
+                return {...gr, quantity: gr.quantity-1}
+            }else{
+                return gr
+            }
+        })
+        setGroceriesInCatalog(newList)
+    }
+    function getGroceryRows(list){
+        return list.map((gr, index)=>{
+            return <GroceryInCatalog 
+                    index={index}
+                    imgURL={gr.imgURL}
+                    name={gr.name}
+                    quantity={gr.quantity}
+                    price={gr.price}
+                    decrementGrocery={decrementGrocery}
+                />
+        })         
+    }
     return (
         <div className='container'>
             <header className='mx-4 my-1 row'>
@@ -18,12 +53,7 @@ function App() {
                                 <th scope="col">Quantity</th>
                             </tr>
                         </thead>
-                        <tr className='table-primary'>
-                            <td>place_of_image</td>
-                            <td>Garlic bread</td>
-                            <td>30</td>
-                            <td>8</td>
-                        </tr>
+                        {getGroceryRows(groceriesInCatalog)}
                     </table>
                 </div>
                 <div className='col-4'>
