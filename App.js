@@ -2,6 +2,7 @@ import React from 'react'
 import GroceryInCatalog from './GroceryInCatalog'
 import GroceryInShoppingCart from './GroceryInShoppingCart'
 import MainContent from './MainContent'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 function App() {
     const [groceriesInCatalog, setGroceriesInCatalog] = React.useState(
@@ -17,6 +18,11 @@ function App() {
     )
     const [groceriesInShoppingCart, setgroceriesInShoppingCart] = React.useState([])
     const [showReceipt, setShowReceipt] = React.useState(false)
+    const [history, setHistory] = React.useState([])
+
+    // {groceriesInShoppingCart,
+    // totalPrice}
+
     function Grocery(imgURL, name, price, quantity){
         this.imgURL = imgURL
         this.name=name
@@ -106,22 +112,33 @@ function App() {
         })         
     }
     return (
-        <div className='container'>
+        <Router>
+            <div className='container'>
             <header className='mx-4 my-1 row'>
                 <h1 className='col-12'>Beni's Corner Grocery Shop</h1>
             </header>
-            <MainContent 
-                showReceipt={showReceipt}
-                getCatalogRows = {getCatalogRows}
-                getShoppingCartRows = {getShoppingCartRows}
-                groceriesInShoppingCart = {groceriesInShoppingCart}
-                setShowReceipt = {setShowReceipt}
-                setgroceriesInShoppingCart = {setgroceriesInShoppingCart}
-            />
+            <Routes>
+                <Route exact path="/" element={
+                    <MainContent 
+                        showReceipt={showReceipt}
+                        getCatalogRows = {getCatalogRows}
+                        getShoppingCartRows = {getShoppingCartRows}
+                        groceriesInShoppingCart = {groceriesInShoppingCart}
+                        setShowReceipt = {setShowReceipt}
+                        setgroceriesInShoppingCart = {setgroceriesInShoppingCart}
+                        setHistory={setHistory}
+                        history={history}
+                    />
+                    
+                }
+                />
+            </Routes>
             <footer className='bg-light fixed-bottom mx-3 row justify-content-around fw-light'>
                 <p className='col-12'>14.06.2023 Benjámin Feldmájer</p>
             </footer>
         </div>
+        </Router>
+        
     )
 }
 
