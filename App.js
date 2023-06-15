@@ -1,6 +1,7 @@
 import React from 'react'
 import GroceryInCatalog from './GroceryInCatalog'
 import GroceryInShoppingCart from './GroceryInShoppingCart'
+import MainContent from './MainContent'
 
 function App() {
     const [groceriesInCatalog, setGroceriesInCatalog] = React.useState(
@@ -15,6 +16,7 @@ function App() {
         ]
     )
     const [groceriesInShoppingCart, setgroceriesInShoppingCart] = React.useState([])
+    const [showReceipt, setShowReceipt] = React.useState(false)
     function Grocery(imgURL, name, price, quantity){
         this.imgURL = imgURL
         this.name=name
@@ -106,48 +108,16 @@ function App() {
     return (
         <div className='container'>
             <header className='mx-4 my-1 row'>
-                <h1 className='col-12'>Groceries</h1>
+                <h1 className='col-12'>Beni's Corner Grocery Shop</h1>
             </header>
-            <div className='row mt-4 justify-content-around align-items-start'>
-                <div className='col-4 mr-2'>
-                    <table className='table table-dark caption-top'>
-                        <caption>Catalog</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Image</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
-                            </tr>
-                        </thead>
-                        {getCatalogRows()}
-                    </table>
-                </div>
-                <div className='col-4'>
-                    <table className='table table-dark caption-top'>
-                        <caption>Shopping Cart</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Image</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
-                            </tr>
-                            {getShoppingCartRows()}
-                        </thead>
-                    </table>
-                </div>
-            </div>
-            <div className='col-8'>
-                <h4>
-                    Total cost: {
-                        groceriesInShoppingCart.reduce((prev, element)=>{
-                            return prev + element.gr.quantity * element.gr.price
-                        },0)
-                    }
-                </h4>
-            </div>
-            <footer className='fixed-bottom mx-4 row'>
+            <MainContent 
+                showReceipt={showReceipt}
+                getCatalogRows = {getCatalogRows}
+                getShoppingCartRows = {getShoppingCartRows}
+                groceriesInShoppingCart = {groceriesInShoppingCart}
+                setShowReceipt = {setShowReceipt}
+            />
+            <footer className='fixed-bottom mx-3 row justify-content-around'>
                 <p className='col-12'>14.06.2023 Benjámin Feldmájer</p>
             </footer>
         </div>
