@@ -11,6 +11,7 @@ function Receipt(props) {
                     list = {[...props.history].pop()}
                 />
                 <button className='col-3 px-auto btn btn-success' onClick={()=>{props.setShowReceipt(false)}}>Back to shop</button>
+
             </div>
     );
 }

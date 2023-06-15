@@ -15,6 +15,7 @@ function MainContent(props) {
                 setgroceriesInShoppingCart = {props.setgroceriesInShoppingCart}
                 history={props.history}
                 groceriesInCatalog = {props.groceriesInCatalog}
+
             />
         )
     }

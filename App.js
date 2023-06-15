@@ -176,6 +176,7 @@ function App() {
             <footer className='bg-light fixed-bottom mx-3 row justify-content-around fw-light'>
                 <p className='col-7'>14.06.2023 Benjámin Feldmájer</p>
                 <Links />
+
             </footer>
         </div>
         </Router>
