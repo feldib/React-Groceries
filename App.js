@@ -1,20 +1,22 @@
 import React from 'react'
 import GroceryInCatalog from './GroceryInCatalog'
 import GroceryInShoppingCart from './GroceryInShoppingCart'
+import MainContent from './MainContent'
 
 function App() {
     const [groceriesInCatalog, setGroceriesInCatalog] = React.useState(
         [
-            new Grocery("", "Garlic bread", 30, 8),
-            new Grocery("", "Butter", 50, 4),
-            new Grocery("", "Gefillte Fish", 23, 1),
-            new Grocery("", "Canned Beans", 11, 6),
-            new Grocery("", "Corn", 44, 12),
-            new Grocery("", "Elephant meat", 1100, 4),
-            new Grocery("", "Peanuts", 100, 44),
+            new Grocery("https://www.ambitiouskitchen.com/wp-content/uploads/2023/02/Garlic-Bread-4-750x750.jpg", "Garlic bread", 30, 8),
+            new Grocery("https://cdn.britannica.com/27/122027-050-EAA86783/Butter.jpg?w=400&h=300&c=crop", "Butter", 50, 4),
+            new Grocery("https://assets.epicurious.com/photos/57bb35a1df05218810c52150/master/w_1000,h_575,c_limit/classic-gefilte-fish.jpg", "Gefillte Fish", 23, 1),
+            new Grocery("https://www.marthastewart.com/thmb/At_ND1kui3zsWpwfSEyoBIp-Qxk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/whitebeans025-md110800-sq-onecms-27ffb1f786da4ec3ae6a70728e3a29e0.jpg", "Canned Beans", 11, 6),
+            new Grocery("https://www.allrecipes.com/thmb/DgFVZ9PgNfKIVkMqT_2JDYUyyoE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/222352-jamies-sweet-and-easy-corn-on-the-cob-rae-1x1-1-b9082581de2e4f34b3271f6646bcc7c6.jpg", "Corn", 44, 12),
+            new Grocery("https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTE-wD0yTVtZJTsXTVyZ2BL3a0i6XsrQy1zZ7j5H2To3asMr2ddcKzBkfwMZikSnf_kZd-yv9hZxVXcP3E", "Elephant meat", 1100, 4),
+            new Grocery("https://d131k5wuh4trw5.cloudfront.net/uploads/9-1-1024x1024.png", "Peanuts", 100, 44),
         ]
     )
     const [groceriesInShoppingCart, setgroceriesInShoppingCart] = React.useState([])
+    const [showReceipt, setShowReceipt] = React.useState(false)
     function Grocery(imgURL, name, price, quantity){
         this.imgURL = imgURL
         this.name=name
@@ -106,48 +108,17 @@ function App() {
     return (
         <div className='container'>
             <header className='mx-4 my-1 row'>
-                <h1 className='col-12'>Groceries</h1>
+                <h1 className='col-12'>Beni's Corner Grocery Shop</h1>
             </header>
-            <div className='row mt-4 justify-content-around align-items-start'>
-                <div className='col-4 mr-2'>
-                    <table className='table table-dark caption-top'>
-                        <caption>Catalog</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Image</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
-                            </tr>
-                        </thead>
-                        {getCatalogRows()}
-                    </table>
-                </div>
-                <div className='col-4'>
-                    <table className='table table-dark caption-top'>
-                        <caption>Shopping Cart</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Image</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
-                            </tr>
-                            {getShoppingCartRows()}
-                        </thead>
-                    </table>
-                </div>
-            </div>
-            <div className='col-8'>
-                <h4>
-                    Total cost: {
-                        groceriesInShoppingCart.reduce((prev, element)=>{
-                            return prev + element.gr.quantity * element.gr.price
-                        },0)
-                    }
-                </h4>
-            </div>
-            <footer className='fixed-bottom mx-4 row'>
+            <MainContent 
+                showReceipt={showReceipt}
+                getCatalogRows = {getCatalogRows}
+                getShoppingCartRows = {getShoppingCartRows}
+                groceriesInShoppingCart = {groceriesInShoppingCart}
+                setShowReceipt = {setShowReceipt}
+                setgroceriesInShoppingCart = {setgroceriesInShoppingCart}
+            />
+            <footer className='bg-light fixed-bottom mx-3 row justify-content-around fw-light'>
                 <p className='col-12'>14.06.2023 Benjámin Feldmájer</p>
             </footer>
         </div>

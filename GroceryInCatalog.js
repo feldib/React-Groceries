@@ -9,9 +9,19 @@ function GroceryInCatalog(props){
         <tr className='table-primary' onClick={()=>{
             props.putToCart(props.index)
         }}>
-            <td><img src={props.imgURL} /></td>
+            <td>
+                <img 
+                    style={{
+                        width: 70,
+                        height: 70,
+                        objectFit: "cover"
+                    }}
+                    className='img-fluid img-thumbnail' 
+                    src={props.imgURL} 
+                /> 
+            </td>
             <td className={isDisabled}>{props.name}</td>
-            <td>{props.price}</td>
+            <td>₪{props.price}</td>
             <td>{props.quantity}</td>
         </tr>
     )
