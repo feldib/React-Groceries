@@ -119,6 +119,7 @@ function App() {
                 setgroceriesInShoppingCart = {setgroceriesInShoppingCart}
             />
             <footer className='bg-light fixed-bottom mx-3 row justify-content-around fw-light'>
+
                 <p className='col-12'>14.06.2023 Benjámin Feldmájer</p>
             </footer>
         </div>

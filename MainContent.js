@@ -14,7 +14,6 @@ function MainContent(props) {
                 getCatalogRows={props.getCatalogRows}
                 getShoppingCartRows={props.getShoppingCartRows}
                 setShowReceipt={props.setShowReceipt}
-                
                 totalPrice={totalPrice}
             />
         )
