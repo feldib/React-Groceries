@@ -36,3 +36,12 @@ Plan:
     -> 19:20-19:50
 8. finishing touches, debugging and styling if needed (might include break)
     -> 19:50-20:30
+
+with new task: 
+
+1. Install and implement react router with current app -> 17:30-17:50
+2. Make new state attribute to load history and receit data from -> 17:50-18:10
+3. break -> 18:10-18:20
+4. Add links and create history compontonent ->18:20-20:00
+5. break -> 20:00-20:15
+6. 20:15- 21:00 <- finishing touches
