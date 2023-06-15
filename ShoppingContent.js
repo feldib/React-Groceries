@@ -8,6 +8,7 @@ function ShoppingContent(props) {
             ...props.history, props.groceriesInShoppingCart
         ])
         props.setgroceriesInShoppingCart([])
+        localStorage.setItem('storedGroceriesInCatalog', JSON.stringify(props.groceriesInCatalog))
         props.setShowReceipt(true)
     }
     return (

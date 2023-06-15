@@ -3,22 +3,18 @@ import ShoppingContent from './ShoppingContent'
 import Receipt from './Receipt'
 
 function MainContent(props) {
-    function totalPrice(list){
-        return list.reduce((prev, element)=>{
-            return prev + element.gr.quantity * element.gr.price
-        },0)
-    }
     if(!props.showReceipt){
         return (
             <ShoppingContent 
                 getCatalogRows={props.getCatalogRows}
                 getShoppingCartRows={props.getShoppingCartRows}
                 setShowReceipt={props.setShowReceipt}
-                totalPrice={totalPrice}
+                totalPrice={props.totalPrice}
                 setHistory={props.setHistory}
                 groceriesInShoppingCart={props.groceriesInShoppingCart}
                 setgroceriesInShoppingCart = {props.setgroceriesInShoppingCart}
                 history={props.history}
+                groceriesInCatalog = {props.groceriesInCatalog}
             />
         )
     }
@@ -27,7 +23,7 @@ function MainContent(props) {
             <Receipt 
                 setShowReceipt={props.setShowReceipt}
                 history={props.history}
-                totalPrice={totalPrice}
+                totalPrice={props.totalPrice}
             />
         )
     }
