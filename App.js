@@ -6,13 +6,13 @@ import MainContent from './MainContent'
 function App() {
     const [groceriesInCatalog, setGroceriesInCatalog] = React.useState(
         [
-            new Grocery("", "Garlic bread", 30, 8),
-            new Grocery("", "Butter", 50, 4),
-            new Grocery("", "Gefillte Fish", 23, 1),
-            new Grocery("", "Canned Beans", 11, 6),
-            new Grocery("", "Corn", 44, 12),
-            new Grocery("", "Elephant meat", 1100, 4),
-            new Grocery("", "Peanuts", 100, 44),
+            new Grocery("https://www.ambitiouskitchen.com/wp-content/uploads/2023/02/Garlic-Bread-4-750x750.jpg", "Garlic bread", 30, 8),
+            new Grocery("https://cdn.britannica.com/27/122027-050-EAA86783/Butter.jpg?w=400&h=300&c=crop", "Butter", 50, 4),
+            new Grocery("https://assets.epicurious.com/photos/57bb35a1df05218810c52150/master/w_1000,h_575,c_limit/classic-gefilte-fish.jpg", "Gefillte Fish", 23, 1),
+            new Grocery("https://www.marthastewart.com/thmb/At_ND1kui3zsWpwfSEyoBIp-Qxk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/whitebeans025-md110800-sq-onecms-27ffb1f786da4ec3ae6a70728e3a29e0.jpg", "Canned Beans", 11, 6),
+            new Grocery("https://www.allrecipes.com/thmb/DgFVZ9PgNfKIVkMqT_2JDYUyyoE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/222352-jamies-sweet-and-easy-corn-on-the-cob-rae-1x1-1-b9082581de2e4f34b3271f6646bcc7c6.jpg", "Corn", 44, 12),
+            new Grocery("https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTE-wD0yTVtZJTsXTVyZ2BL3a0i6XsrQy1zZ7j5H2To3asMr2ddcKzBkfwMZikSnf_kZd-yv9hZxVXcP3E", "Elephant meat", 1100, 4),
+            new Grocery("https://d131k5wuh4trw5.cloudfront.net/uploads/9-1-1024x1024.png", "Peanuts", 100, 44),
         ]
     )
     const [groceriesInShoppingCart, setgroceriesInShoppingCart] = React.useState([])
@@ -116,8 +116,10 @@ function App() {
                 getShoppingCartRows = {getShoppingCartRows}
                 groceriesInShoppingCart = {groceriesInShoppingCart}
                 setShowReceipt = {setShowReceipt}
+                setgroceriesInShoppingCart = {setgroceriesInShoppingCart}
             />
-            <footer className='fixed-bottom mx-3 row justify-content-around'>
+            <footer className='bg-light fixed-bottom mx-3 row justify-content-around fw-light'>
+
                 <p className='col-12'>14.06.2023 Benjámin Feldmájer</p>
             </footer>
         </div>

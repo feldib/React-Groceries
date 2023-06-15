@@ -23,6 +23,8 @@ function MainContent(props) {
             <Receipt 
                 groceriesInShoppingCart={props.groceriesInShoppingCart} 
                 totalPrice={totalPrice}
+                setShowReceipt={props.setShowReceipt}
+                setgroceriesInShoppingCart = {props.setgroceriesInShoppingCart}
             />
         )
     }

@@ -10,10 +10,10 @@ function ShoppingContent(props) {
                 <ShoppingCartTable getShoppingCartRows={props.getShoppingCartRows} />
             </div>
 
-            <div className='row justify-content-around'>
+            <div className='row justify-content-around mb-5'>
                 <div className='col-5'>
                     <h4>
-                        Total cost: {props.totalPrice()}
+                        Total cost: ₪{props.totalPrice()}
                     </h4>
                 </div>
                 <button className='col-2 px-auto btn btn-success' onClick={()=>{props.setShowReceipt(true)}}>Order</button>
